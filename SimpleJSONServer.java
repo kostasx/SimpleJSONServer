@@ -55,6 +55,7 @@ public class SimpleJSONServer implements Runnable {
             out.println("Date: " + new Date());
             out.println("Content-type: application/json");
             out.println("Content-length: " + fileLength);
+            out.println("Access-Control-Allow-Origin: *");
             out.println(); 
             out.flush(); 
             dataOut.write(fileData, 0, fileLength);

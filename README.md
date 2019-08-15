@@ -1,4 +1,4 @@
-*What?* A Simple Web Server in Java that serves a JSON file
+*What?* A Simple CORS-enabled Web Server in Java that serves a JSON file. 
 
 *Why?* To test Ajax requests via JavaScript
 
