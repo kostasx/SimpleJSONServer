@@ -1,8 +1,8 @@
-*What?* A Simple CORS-enabled Web Server in Java that serves a JSON file. 
+**_What?_** A Simple CORS-enabled Web Server in Java that serves a JSON file. 
 
-*Why?* To test Ajax requests via JavaScript
+**_Why?_** To test Ajax requests via JavaScript
 
-*How?* 
+**_How?_**
 
 `git clone git@github.com:kostasx/SimpleJSONServer.git` 
 
@@ -12,4 +12,4 @@
 
 Then go to: *http://localhost:8080*
 
-*What?* You can change the data served by adding custom JSON data into the data.json file
+**_What?_** You can change the data served by adding custom JSON data into the data.json file
