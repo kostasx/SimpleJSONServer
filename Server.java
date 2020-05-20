@@ -51,14 +51,14 @@ public class Server {
             // Get URL, HTTP method and URL Path
             if ( line.matches("(?i)^(GET|POST|PUT|DELETE|HEAD|TRACE|OPTIONS).*$") ){
 
-                System.out.println("\r\n >> HTTP REQUEST: " + line + "\r\n");
+                System.out.printf("\r\n >> HTTP REQUEST: %s \r\n", line);
 
                 Pattern pattern = Pattern.compile("(?i)^(GET|POST|PUT|DELETE|HEAD|TRACE|OPTIONS)\\s+(\\S+)\\s+(HTTP)/");
                 Matcher matcher = pattern.matcher(line);
 
                 if ( matcher.find() ) {
                     path = matcher.group(2);
-                    System.out.println("Match: " + path);
+                    System.out.printf("Match: %s", path);
                 }
 
             }
@@ -170,8 +170,8 @@ public class Server {
 
         try {
             ServerSocket socket = new ServerSocket(port);
-            System.out.println("Server started at port: " + port); 
-            System.out.println("Visit the page at http://localhost:" + port); 
+            System.out.printf("Server started at port: %d %n", port); 
+            System.out.printf("Visit the page at http://localhost:%d %n", port); 
             System.out.println("Waiting for a client ..."); 
  
             while (true) {
