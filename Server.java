@@ -40,28 +40,35 @@ public class Server {
 
     public void readRequest(Socket client) throws IOException {
 
-        // System.out.println("readRequest()");
-
         Reader raw = new InputStreamReader(client.getInputStream(), "utf8");
         BufferedReader reader = new BufferedReader(raw);
+
         while (true) {
+
             String line = reader.readLine().trim();
-            input += line + "\r\n";
+            input += line + "\r\n"; // Get user agent input
+
+            // Get URL, HTTP method and URL Path
             if ( line.matches("(?i)^(GET|POST|PUT|DELETE|HEAD|TRACE|OPTIONS).*$") ){
+
                 System.out.println("\r\n >> HTTP REQUEST: " + line + "\r\n");
 
                 Pattern pattern = Pattern.compile("(?i)^(GET|POST|PUT|DELETE|HEAD|TRACE|OPTIONS)\\s+(\\S+)\\s+(HTTP)/");
                 Matcher matcher = pattern.matcher(line);
-                if (matcher.find()) {
+
+                if ( matcher.find() ) {
                     path = matcher.group(2);
                     System.out.println("Match: " + path);
                 }
 
             }
-            if (line.equals("")){
+
+            if ( line.equals("") ){
                 break;
             }
+
         }
+
     }
 
     public void sendHTML(Socket client) throws IOException {
@@ -117,7 +124,8 @@ public class Server {
     }
 
     private byte[] readFileData(File file, int fileLength) throws IOException {
-		FileInputStream fileIn = null;
+
+        FileInputStream fileIn = null;
 		byte[] fileData = new byte[fileLength];
 		
 		try {
@@ -130,6 +138,7 @@ public class Server {
 		}
 		
 		return fileData;
+
     }
     
     public void Route(Socket client) throws IOException {
@@ -178,7 +187,7 @@ public class Server {
 
     public static void main(String args[]) {
 
-        Server server = new Server(port);
+        new Server(port);
 
     }
 }
