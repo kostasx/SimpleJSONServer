@@ -91,10 +91,10 @@ public class Server {
         PrintWriter writer = new PrintWriter(client.getOutputStream());
         BufferedOutputStream dataOut = new BufferedOutputStream(client.getOutputStream());
 
-        File jsonFile = new File(
-            Server.class.getProtectionDomain().getCodeSource().getLocation().getPath(), 
-            json
-        );
+        String classPath = Server.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        File jsonFile = new File( classPath, json );
+
+        System.out.printf("jsonFile %s %n", jsonFile);
 
         // Create a dummy/sample data file, if not already exists:
         if ( !jsonFile.exists() ){ 
