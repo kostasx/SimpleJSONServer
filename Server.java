@@ -58,7 +58,7 @@ public class Server {
 
                 if ( matcher.find() ) {
                     path = matcher.group(2);
-                    System.out.printf("Match: %s", path);
+                    System.out.printf("Match: %s %n", path);
                 }
 
             }
