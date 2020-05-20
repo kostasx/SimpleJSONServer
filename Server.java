@@ -26,7 +26,10 @@ class Post {
 
     @Override
     public String toString() { 
-        return String.format("{ \"id\": " + id + ", \"title\": \"" + title + "\", \"author\" : \"" + author + "\", \"content\": \"" + content + "\" }"); 
+        return String.format(
+            "{ \"id\": %d, \"title\": \"%s\", \"author\" : \"%s\", \"content\": \"%s\" }", 
+            id, title, author, content 
+        ); 
     } 
 
 }
